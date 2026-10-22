@@ -18,7 +18,7 @@
 ---
 
 ## Proposed Solution
-* **One-Sentence Summary:** 
+**One-Sentence Summary:** 
 
 **[THE PROBLEM]**: Sari-sari store (interchangable) owners frequently shutter their shops to source and haul supplies individually, forfeiting vital daily income.
 
