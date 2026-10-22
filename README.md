@@ -1,67 +1,102 @@
-# Pasabuy
+# [Project Name]
 
-
-> [One-line pitch]
+[One-line pitch]
 
 ---
-
 ## Problem Statement
-* **Affected Users:** Micro enterprises such as (Sari-sari stores, bakeries, and etc. # interchangable #) who experience
 
-* **Why It Matters:** 
+* *Affected Users:* Online sellers who experience bogus buyers or buyers who back out at the last moment in Cash-on-Delivery (COD) setups. Some buyers may be unavailable to receive their orders on the scheduled delivery date, while others may place fake or fraudulent orders without any intention of completing the order. As a result, sellers experience financial losses due to returned products and wasted materials, even though they never receive payment for their products.
 
+* *Why It Matters:* Bogus buyers and uncollected cash-on-delivery (COD) orders directly erode the profit margins of independent online sellers through unrecoverable packaging, handling, and return-to-origin freight costs. In a systematic review of e-commerce returns management, researchers from the University of Hildesheim analyzed 54 key academic studies and found that 44.4% of the literature specifically focuses on returns prevention (Freichel et al., 2024). This highlights that stopping failed transactions before fulfillment is the single largest priority in modern e-commerce research. 
 
-* **Current Gaps:** Micro-enterprise owners lose crucial operating hours sourcing and hauling inventory, which uses time that should be spent serving customers and driving revenue.
-
-
-
+* *Current Gaps:* (What exists today and why it is not enough)
+Shopify-based COD risk apps (e.g., CODcheck, Munshi Trust Network, TrueCOD) require a Shopify store, which many online sellers don't have. 
+Sellers also warn each other through public posts, which creates cyber-libel and Data Privacy Act risk. 
 ---
+
 
 ## Proposed Solution
-**One-Sentence Summary:** 
 
-**[THE PROBLEM]**: Sari-sari store (interchangable) owners frequently shutter their shops to source and haul supplies individually, forfeiting vital daily income.
+*Credit Score System*
+Sellers can give or deduct points from buyers depending on the situation.
+Sellers with a more vast and trusted transaction history could give bigger penalties
+Depending on the severity of the situation is the deduction given. Examples being refusing to pay, or refusing to accept the package
+Also depending on your current credit score, punishments could include requiring: Online payment, a downpayment, or the seller could just outright refuse service
+An appeal system for buyers? (ai appeal system?)
 
-**[THE SOLUTION]:** Our platform aggregates orders across multiple micro-retailers into a single, consolidated purchase—unlocking bulk wholesale pricing and eliminating procurement downtime.
 
-**[SDG ALIGNMENT]:** By lowering inventory costs and preserving operational hours, this directly advances SDG 1 (No Poverty) and SDG 8 (Decent Work and Economic Growth) through micro-enterprise resilience, while driving SDG 12 (Responsible Consumption and Production) through consolidated, low-emission supply chain logistics.
+* *One-Sentence Summary:* 
+For smaller sellers, losing revenue from even a few deliveries can be a massive hit, our website provides a shared risk-score tracking system that identifies repeat offenders so sellers can add safety precautions to ensure that the delivery goes smoothly
 
+*SDG Alignment:*
+SDG 8: Decent Work and Economic Growth
+SDG 9: Industry, Innovation, and Infrastructure
+SDG 10: Reduced Inequalities
+SDG 12: Responsible Consumption and Production
 ---
-
 ## MVP Scope
-* **Prototype Core Flow (What it will do):** [The one core flow that can be built and demoed in about one day with AI tools]
-* **Out of Scope (What it will not do):** [Explicitly what will be excluded from the prototype]
-* **Real vs. Mocked:**
-  * **Real:** [What will be real in the prototype]
-  * **Mocked:** [What will be mocked or hard-coded]
+* *Prototype Core Flow (What it will do):* [The one core flow that can be built and demoed in about one day with AI tools]
+
+
+* *Out of Scope (What it will not do):* 
+ Users who decide to create multiple accounts in order to bypass the credit score system are out of the scope our current prototype has.
+Appeal system (If AI Integrated is not feasible?)
+
+
+
+* *Real vs. Mocked:*
+  * *Real:* [What will be real in the prototype]
+Credit Score System for the users.
+AI appeal system (if feasible?)
+
+
+
+ * *Mocked:* 
+The e-commerce website/app along with the products.
+The reports and evidence for the order delivery receipts and proofs.
+The profiles and accounts for the e-commerce website/app.
 
 ---
-
 ## Planned Tech Stack
 * [Languages, frameworks, libraries, APIs, and AI tools]
+* ### The stack
 
----
+| Layer | Pick | Why |
+| :--- | :--- | :--- |
+| UI design | **Stitch** | Wireframes of 3-4 screens first, so the builder has a clear target[cite: 1] |
+| Frontend | **React + Vite + Tailwind + shadcn/ui**, generated by **Lovable** | This is what Lovable typically outputs, and the code stays readable enough to explain[cite: 1] |
+| Database and backend | **Supabase** (Postgres + edge functions) | Lovable connects to it directly, and it gives you real stored scores, not fake ones[cite: 1] |
+| Score logic | **Plain TypeScript rules**, no AI | Deterministic and easy to defend: severity weight × seller trust weight, then a tier[cite: 1] |
+| Privacy | **HMAC-SHA256** on phone and address, with a secret key stored on the server | See the warning below[cite: 1] |
+| AI | **Gemini API** (free tier via AI Studio), called from a Supabase edge function | Only for the appeal triage[cite: 1] |
+| Version control | **GitHub**, synced from Lovable | Required by the rules, and judges will read it[cite: 1] |
+| Debugging | **Claude** | Paste the error and the file, and ask it to explain before fixing[cite: 1] |
+| Hosting | Lovable's publish, or Vercel | Gives you a live link for the submission[cite: 1] |
+* ---
+
 
 ## Limitations and Risks
-* [Your honest weaknesses]
+-  The ‘shopping’ app is a placeholder for official e-commerce websites or apps. It is to demonstrate the process of online buying and delivering. The functionalities of the website are built on top of it. 
+-   
 
 ---
-
 ## Feasibility, Scalability and Sustainability
-* **Feasibility:** [Feasibility notes]
-* **Scalability:** [Believable path to scale]
-* **Sustainability:** [Path to sustain the project]
+* *Feasibility:* [Feasibility notes]
+**Legal & Privacy Compliance:** Unlike public "bogus buyer" social media posts that risk cyber-libel and Data Privacy Act violations, the platform hashes sensitive buyer identifiers (such as phone numbers and delivery addresses) and outputs only anonymized risk tiers (e.g., "Low Risk," "Require Downpayment") rather than exposing raw personal data publicly. 
 
+* *Scalability:* [Believable path to scale]
+**AI Triage at Scale:** As transaction disputes grow, the AI Appeal System automatically evaluates standard evidence (delivery receipts, courier tracking statuses, and chat logs) so only complex edge cases require human review. 
+
+* *Sustainability:* [Path to sustain the project]
+**Courier & Aggregator Partnerships:** Collaborating with logistics providers and shipping aggregators who also lose operational capacity on Return-to-Origin (RTO) parcels, taking a micro-fee per prevented failed delivery. 
 ---
-
 ## Team Members and Roles
-* **Raymond Marasigan:** Team Leader 
-* **Christian Klien Moneje:** [Assigned role and responsibilities]
-* **[Thomas Angelo Tongson]:** [Assigned role and responsibilities]
-* **[Ariani Ann Faye Austria]:** [Assigned role and responsibilities]
-
+[Raymond Marasigan]: Team Leader | Frontend | Backend | Product & Research | UI/UX | Pitching
+[Christian Klien Monje]: Developer | Frontend | Backend | UI/UX | Product & Research | Pitching
+[Thomas Angelo Tongson]: Developer | Backend | Product & Research | Pitching
+[Ariani Ann Faye Austria]: Presenter | UI/UX | Pitching
 
 ---
-
 ## Next Steps After the Hackathon
 * [Next steps and future plans]
+
