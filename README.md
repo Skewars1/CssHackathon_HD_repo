@@ -1,19 +1,30 @@
-# [Project Name]
-Pasabuy
+# Pasabuy
+
+
 > [One-line pitch]
 
 ---
 
 ## Problem Statement
-* **Affected Users:** [Who is affected]
-* **Why It Matters:** [The core pain point and why it matters]
-* **Current Gaps:** [What exists today and why it is not enough]
+* **Affected Users:** Micro enterprises such as (Sari-sari stores, bakeries, and etc. # interchangable #) who experience
+
+* **Why It Matters:** 
+
+
+* **Current Gaps:** Micro-enterprise owners lose crucial operating hours sourcing and hauling inventory, which uses time that should be spent serving customers and driving revenue.
+
+
 
 ---
 
 ## Proposed Solution
-* [Description of the proposed solution and how it works]
-* **One-Sentence Summary:** [Explain the user, the pain, and the benefit in one sentence]
+* **One-Sentence Summary:** 
+
+**[THE PROBLEM]**: Sari-sari store (interchangable) owners frequently shutter their shops to source and haul supplies individually, forfeiting vital daily income.
+
+**[THE SOLUTION]:** Our platform aggregates orders across multiple micro-retailers into a single, consolidated purchase—unlocking bulk wholesale pricing and eliminating procurement downtime.
+
+**[SDG ALIGNMENT]:** By lowering inventory costs and preserving operational hours, this directly advances SDG 1 (No Poverty) and SDG 8 (Decent Work and Economic Growth) through micro-enterprise resilience, while driving SDG 12 (Responsible Consumption and Production) through consolidated, low-emission supply chain logistics.
 
 ---
 
