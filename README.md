@@ -1,56 +1,56 @@
 # [Project Name]
 
-> [One-line pitch][cite: 2]
+> [One-line pitch]
 
 ---
 
 ## Problem Statement
-* **Affected Users:** [Who is affected][cite: 1, 2]
-* **Why It Matters:** [The core pain point and why it matters][cite: 1, 2]
-* **Current Gaps:** [What exists today and why it is not enough][cite: 1]
+* **Affected Users:** [Who is affected]
+* **Why It Matters:** [The core pain point and why it matters]
+* **Current Gaps:** [What exists today and why it is not enough]
 
 ---
 
 ## Proposed Solution
-* [Description of the proposed solution and how it works][cite: 2]
-* **One-Sentence Summary:** [Explain the user, the pain, and the benefit in one sentence][cite: 2]
+* [Description of the proposed solution and how it works]
+* **One-Sentence Summary:** [Explain the user, the pain, and the benefit in one sentence]
 
 ---
 
 ## MVP Scope
-* **Prototype Core Flow (What it will do):** [The one core flow that can be built and demoed in about one day with AI tools][cite: 2]
-* **Out of Scope (What it will not do):** [Explicitly what will be excluded from the prototype][cite: 2]
+* **Prototype Core Flow (What it will do):** [The one core flow that can be built and demoed in about one day with AI tools]
+* **Out of Scope (What it will not do):** [Explicitly what will be excluded from the prototype]
 * **Real vs. Mocked:**
-  * **Real:** [What will be real in the prototype][cite: 2]
-  * **Mocked:** [What will be mocked or hard-coded][cite: 2]
+  * **Real:** [What will be real in the prototype]
+  * **Mocked:** [What will be mocked or hard-coded]
 
 ---
 
 ## Planned Tech Stack
-* [Languages, frameworks, libraries, APIs, and AI tools][cite: 1, 2]
+* [Languages, frameworks, libraries, APIs, and AI tools]
 
 ---
 
 ## Limitations and Risks
-* [Your honest weaknesses][cite: 2]
+* [Your honest weaknesses]
 
 ---
 
 ## Feasibility, Scalability and Sustainability
-* **Feasibility:** [Feasibility notes][cite: 2]
-* **Scalability:** [Believable path to scale][cite: 2]
-* **Sustainability:** [Path to sustain the project][cite: 2]
+* **Feasibility:** [Feasibility notes]
+* **Scalability:** [Believable path to scale]
+* **Sustainability:** [Path to sustain the project]
 
 ---
 
 ## Team Members and Roles
-* **Raymond Marasigan:** Team Leader [cite: 2]
-* **Christian Klien Moneje:** [Assigned role and responsibilities][cite: 2]
-* **[Thomas Angelo Tongson]:** [Assigned role and responsibilities][cite: 2]
-* **[Ariani Ann Faye Austria]:** [Assigned role and responsibilities][cite: 2]
+* **Raymond Marasigan:** Team Leader 
+* **Christian Klien Moneje:** [Assigned role and responsibilities]
+* **[Thomas Angelo Tongson]:** [Assigned role and responsibilities]
+* **[Ariani Ann Faye Austria]:** [Assigned role and responsibilities]
 
 
 ---
 
 ## Next Steps After the Hackathon
-* [Next steps and future plans][cite: 2]
+* [Next steps and future plans]
