@@ -44,9 +44,11 @@
 ---
 
 ## Team Members and Roles
-* **[Member 1 Name]:** [Assigned role and responsibilities][cite: 2]
-* **[Member 2 Name]:** [Assigned role and responsibilities][cite: 2]
-* **[Member 3 Name]:** [Assigned role and responsibilities][cite: 2]
+* **Raymond Marasigan:** Team Leader [cite: 2]
+* **Christian Klien Moneje:** [Assigned role and responsibilities][cite: 2]
+* **[Thomas Angelo Tongson]:** [Assigned role and responsibilities][cite: 2]
+* **[Ariani Ann Faye Austria]:** [Assigned role and responsibilities][cite: 2]
+
 
 ---
 
