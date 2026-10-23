@@ -98,11 +98,97 @@ export type Database = {
           },
         ]
       }
+      appeals: {
+        Row: {
+          account_id: string
+          category: string
+          checks: Json
+          created_at: string
+          evidence: string
+          explanation: string
+          id: string
+          order_id: string
+          restored_points: number
+          summary: string
+          verdict: string
+        }
+        Insert: {
+          account_id: string
+          category: string
+          checks?: Json
+          created_at?: string
+          evidence: string
+          explanation?: string
+          id?: string
+          order_id: string
+          restored_points?: number
+          summary?: string
+          verdict: string
+        }
+        Update: {
+          account_id?: string
+          category?: string
+          checks?: Json
+          created_at?: string
+          evidence?: string
+          explanation?: string
+          id?: string
+          order_id?: string
+          restored_points?: number
+          summary?: string
+          verdict?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "appeals_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: true
+            referencedRelation: "parcel_records"
+            referencedColumns: ["order_id"]
+          },
+          {
+            foreignKeyName: "appeals_account_id_fkey"
+            columns: ["account_id"]
+            isOneToOne: false
+            referencedRelation: "buyer_profiles"
+            referencedColumns: ["account_id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
+      apply_appeal: {
+        Args: {
+          _category: string
+          _checks: Json
+          _evidence: string
+          _explanation: string
+          _order_id: string
+          _restored: number
+          _summary: string
+          _verdict: string
+        }
+        Returns: {
+          account_id: string
+          confirmed_deliveries: number
+          created_at: string
+          id: string
+          missed_returned_count: number
+          pending_count: number
+          phone_hash: string
+          risk_factor: string
+          trust_score: number
+        }
+        SetofOptions: {
+          from: "*"
+          to: "buyer_profiles"
+          isOneToOne: true
+          isSetofReturn: false
+        }
+      }
       compute_risk_factor: {
         Args: { _resolved: number; _score: number }
         Returns: string

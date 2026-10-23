@@ -29,10 +29,10 @@ function Risk() {
       <Crumbs items={["SureCOD", "Risk Engine", "Buyer Lookup"]} />
       <div className="flex flex-wrap items-end justify-between gap-3 mt-4 mb-5">
         <h1 className="font-heading text-2xl font-bold">Seller Risk Lookup</h1>
-        <div className="relative flex items-center">
+        <div className="relative flex items-center w-full sm:w-auto">
           <Icon name="search" className="absolute left-2.5 text-muted-foreground text-[16px]" />
           <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search ACC-XXXX or phone hash…"
-            className="w-80 pl-8 pr-3 py-1.5 bg-ivory border border-border rounded font-mono text-xs placeholder:text-muted-foreground focus:outline-none focus:border-foreground" />
+            className="w-full sm:w-80 pl-8 pr-3 py-1.5 bg-ivory border border-border rounded font-mono text-xs placeholder:text-muted-foreground focus:outline-none focus:border-foreground" />
         </div>
       </div>
 
@@ -64,7 +64,7 @@ function Risk() {
                   <div className="flex items-center gap-1.5 text-sm font-semibold"><Icon name="badge" className="text-[16px] text-muted-foreground" />{p.account_id}</div>
                   <div className="text-muted-foreground break-all"><Icon name="lock" className="text-[12px] text-trusted" /> sha256_{p.phone_hash}</div>
                 </div>
-                <div className="flex gap-6 font-mono text-center">
+                <div className="flex flex-wrap gap-x-6 gap-y-3 font-mono text-center">
                   {([[p.confirmed_deliveries, "Confirmed"], [p.missed_returned_count, "Missed / Returned"], [p.pending_count, "Pending"]] as const).map(([n, l]) => (
                     <div key={l}><div className="text-2xl font-semibold">{n}</div><div className="text-[10px] uppercase text-muted-foreground">{l}</div></div>
                   ))}
@@ -73,7 +73,8 @@ function Risk() {
             </Panel>
             <Panel className="overflow-hidden">
               <div className="px-5 py-3 border-b border-border"><h2 className="font-heading font-semibold">Transaction History</h2></div>
-              <table className="w-full text-xs">
+              <div className="overflow-x-auto">
+              <table className="w-full min-w-[560px] text-xs">
                 <thead className="bg-stone text-muted-foreground text-[10px] uppercase tracking-wider">
                   <tr>{["Order ID", "Date", "Parcel Status", "Reason", "Impact on Score"].map((h) => <th key={h} className="text-left px-5 py-2 font-semibold">{h}</th>)}</tr>
                 </thead>
@@ -89,6 +90,7 @@ function Risk() {
                   ))}
                 </tbody>
               </table>
+              </div>
               {parcels.isLoading && <div className="px-5 py-4 text-xs text-muted-foreground">Loading…</div>}
             </Panel>
           </div>

@@ -43,7 +43,12 @@ export function RiskBadge({ risk }: { risk: string }) {
 }
 
 export function StatusBadge({ status }: { status: string }) {
-  const c = status === "Confirmed Received" ? "bg-trusted/15 text-trusted" : status === "Missed / Returned" ? "bg-rto/15 text-rto" : "bg-watchlist/15 text-watchlist";
+  const c =
+    status === "Confirmed Received" || status === "Appeal Approved"
+      ? "bg-trusted/15 text-trusted"
+      : status === "Missed / Returned" || status === "Appeal Rejected"
+        ? "bg-rto/15 text-rto"
+        : "bg-watchlist/15 text-watchlist";
   return <span className={`font-mono text-[10px] px-1.5 py-0.5 rounded ${c}`}>{status}</span>;
 }
 

@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppealsRouteImport } from './routes/appeals'
 import { Route as OutcomesRouteImport } from './routes/outcomes'
 import { Route as RiskRouteImport } from './routes/risk'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppealsRoute = AppealsRouteImport.update({
+  id: '/appeals',
+  path: '/appeals',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OutcomesRoute = OutcomesRouteImport.update({
@@ -31,30 +37,34 @@ const RiskRoute = RiskRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/appeals': typeof AppealsRoute
   '/outcomes': typeof OutcomesRoute
   '/risk': typeof RiskRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/appeals': typeof AppealsRoute
   '/outcomes': typeof OutcomesRoute
   '/risk': typeof RiskRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/appeals': typeof AppealsRoute
   '/outcomes': typeof OutcomesRoute
   '/risk': typeof RiskRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/outcomes' | '/risk'
+  fullPaths: '/' | '/appeals' | '/outcomes' | '/risk'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/outcomes' | '/risk'
-  id: '__root__' | '/' | '/outcomes' | '/risk'
+  to: '/' | '/appeals' | '/outcomes' | '/risk'
+  id: '__root__' | '/' | '/appeals' | '/outcomes' | '/risk'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppealsRoute: typeof AppealsRoute
   OutcomesRoute: typeof OutcomesRoute
   RiskRoute: typeof RiskRoute
 }
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/appeals': {
+      id: '/appeals'
+      path: '/appeals'
+      fullPath: '/appeals'
+      preLoaderRoute: typeof AppealsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/outcomes': {
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppealsRoute: AppealsRoute,
   OutcomesRoute: OutcomesRoute,
   RiskRoute: RiskRoute,
 }
