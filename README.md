@@ -1,4 +1,4 @@
-# [Project Name]
+# SureCOD
 
 [One-line pitch]
 
