@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppealsRouteImport } from './routes/appeals'
+import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as OutcomesRouteImport } from './routes/outcomes'
 import { Route as RiskRouteImport } from './routes/risk'
 
@@ -22,6 +23,11 @@ const IndexRoute = IndexRouteImport.update({
 const AppealsRoute = AppealsRouteImport.update({
   id: '/appeals',
   path: '/appeals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OutcomesRoute = OutcomesRouteImport.update({
@@ -38,12 +44,14 @@ const RiskRoute = RiskRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/appeals': typeof AppealsRoute
+  '/checkout': typeof CheckoutRoute
   '/outcomes': typeof OutcomesRoute
   '/risk': typeof RiskRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/appeals': typeof AppealsRoute
+  '/checkout': typeof CheckoutRoute
   '/outcomes': typeof OutcomesRoute
   '/risk': typeof RiskRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/appeals': typeof AppealsRoute
+  '/checkout': typeof CheckoutRoute
   '/outcomes': typeof OutcomesRoute
   '/risk': typeof RiskRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/appeals' | '/outcomes' | '/risk'
+  fullPaths: '/' | '/appeals' | '/checkout' | '/outcomes' | '/risk'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/appeals' | '/outcomes' | '/risk'
-  id: '__root__' | '/' | '/appeals' | '/outcomes' | '/risk'
+  to: '/' | '/appeals' | '/checkout' | '/outcomes' | '/risk'
+  id: '__root__' | '/' | '/appeals' | '/checkout' | '/outcomes' | '/risk'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AppealsRoute: typeof AppealsRoute
+  CheckoutRoute: typeof CheckoutRoute
   OutcomesRoute: typeof OutcomesRoute
   RiskRoute: typeof RiskRoute
 }
@@ -83,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/appeals'
       fullPath: '/appeals'
       preLoaderRoute: typeof AppealsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/outcomes': {
@@ -105,6 +122,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AppealsRoute: AppealsRoute,
+  CheckoutRoute: CheckoutRoute,
   OutcomesRoute: OutcomesRoute,
   RiskRoute: RiskRoute,
 }

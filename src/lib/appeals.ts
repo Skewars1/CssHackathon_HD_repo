@@ -1,5 +1,6 @@
-// Client-safe appeal constants. The evidence is mocked: each preset carries the
-// metadata signals a real screenshot analysis would produce, and the AI reasons over them.
+// Client-safe AI Review constants. The evidence is mocked: each preset carries the
+// metadata signals a real screenshot analysis would produce, and the AI reviews them
+// to prepare a structured report for human moderation (without automatically changing points).
 
 export const APPEAL_CATEGORIES = [
   "Courier Fault: Rider never called or texted",
@@ -52,6 +53,12 @@ export type Verdict = "APPROVED" | "PARTIAL" | "REJECTED";
 export type AppealCheck = { title: string; finding: string };
 
 export type AppealResult = {
+  id?: string;
+  orderId?: string;
+  category?: string;
+  explanation?: string;
+  evidence?: string;
+  createdAt?: string;
   verdict: Verdict;
   restoredPoints: number;
   summary: string;
@@ -65,12 +72,10 @@ export type AppealResult = {
 export const CHECK_TITLES = [
   "Screenshot Metadata & Tamper Check",
   "Courier Call-Attempt Cross-Reference",
-  "Ledger Point Restoration Verdict",
+  "Human Moderation Recommendation",
 ] as const;
 
-/** Points granted for a verdict: full on approval, half (rounded down) on partial, none on rejection. */
-export function restoredFor(verdict: Verdict, deducted: number): number {
-  if (verdict === "APPROVED") return deducted;
-  if (verdict === "PARTIAL") return Math.floor(deducted / 2);
+/** AI Review no longer automatically adds or removes points; human moderators make the final score decision. */
+export function restoredFor(_verdict: Verdict, _deducted: number): number {
   return 0;
 }
